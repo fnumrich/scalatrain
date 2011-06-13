@@ -24,6 +24,7 @@ case class Time(hours: Int = 0, minutes: Int = 0) {
 object Time {
 
   def fromMinutes(minutes: Int): Time = {
+    require(minutes >= 0, "minutes must not be negative")
     new Time(minutes / 60, minutes % 60)
   }
 }

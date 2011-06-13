@@ -8,6 +8,6 @@ package org.scalatrain
  * To change this template use File | Settings | File Templates.
  */
 
-class Person(firstName: stirng, lastName: String) {
+class Person(firstName: String, lastName: String) {
 
 }
