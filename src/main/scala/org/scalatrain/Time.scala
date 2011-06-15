@@ -16,8 +16,10 @@ case class Time(hours: Int = 0, minutes: Int = 0) {
     this.asMinutes - that.asMinutes
   }
 
-  def -(that:Time): Int =
+  def -(that:Time): Int = {
+    require(this.asMinutes >= that.asMinutes, "")
     minus(that)
+}
 
 }
 
@@ -25,6 +27,7 @@ object Time {
 
   def fromMinutes(minutes: Int): Time = {
     require(minutes >= 0, "minutes must not be negative")
+    require(minutes < 24 * 60, "minutes must not be negative")
     new Time(minutes / 60, minutes % 60)
   }
 }

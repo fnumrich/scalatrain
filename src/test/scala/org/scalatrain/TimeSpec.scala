@@ -13,6 +13,12 @@ class TimeSpec extends Specification with ScalaCheck {
       } must pass
     }
 
+    "throw an IllegalArgumentException for minutes >= 24 * 60 " in {
+      forAll(choose(24 * 60, Int.MaxValue))  { (minutes: Int) =>
+        Time fromMinutes minutes must throwA[IllegalArgumentException]
+      } must pass
+    }
+
     "return a correctly initialized Time instance for minutes within [0, 24 * 60 - 1)" in  {
       forAll(choose(0,24 * 60 -1)) { (minutes: Int) =>
         val result = Time fromMinutes minutes
