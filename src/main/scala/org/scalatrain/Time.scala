@@ -13,11 +13,11 @@ case class Time(hours: Int = 0, minutes: Int = 0) {
   lazy val asMinutes = minutes + hours * 60
 
   def minus(that: Time): Int = {
+    require(this.asMinutes >= that.asMinutes, "Given Time must be less or equal to this")
     this.asMinutes - that.asMinutes
   }
 
   def -(that:Time): Int = {
-    require(this.asMinutes >= that.asMinutes, "")
     minus(that)
 }
 
