@@ -10,7 +10,7 @@ class TrainSpec extends Specification {
     }
 
     "throw an IllegalArgumentException for a null number" in {
-      new Train("kind", null) must throwA[IllegalArgumentException]
+      new Train("kind1", null) must throwA[IllegalArgumentException]
     }
 
   }
